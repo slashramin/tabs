@@ -55,7 +55,7 @@ body {
     transform: perspective(.5em) rotateX(90deg);
     transition:
             border-radius .5s ease-out,
-            transform .3s ease-out;
+            transform .2s ease-out;
     transform-origin: bottom;
 }
 
