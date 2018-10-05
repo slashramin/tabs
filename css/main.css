@@ -1,0 +1,89 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 16px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.tabs-container{
+    width: 300px;
+}
+
+.tabs{
+    height: 40px;
+    display: flex;
+    border-bottom: 1px solid #6e42f4;
+    margin: 0;
+    padding: 0;
+}
+
+.tabs li{
+    display: inline-block;
+    height: 100%;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    width: 100px;
+    font-size: 12px;
+    padding: 16px 20px 10px;
+    font-family: sans-serif;
+    color: #3f4d61;
+    opacity: .5;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        opacity .1s ease-in-out .1s,
+        color .3s ease-in-out,
+        font-weight .3s ease-in-out;
+}
+
+.tabs li:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100px;
+    background-color: #6e42f4;
+    z-index: -1;
+    bottom: 0;
+    height: 100%;
+    border-radius: 100% 100% 0 0;
+    transform: perspective(.5em) rotateX(90deg);
+    transition:
+            border-radius .5s ease-out,
+            transform .3s ease-out;
+    transform-origin: bottom;
+}
+
+.tabs li:last-of-type:before{transform-origin: right bottom;}
+.tabs li:first-of-type:before{transform-origin: left bottom;}
+
+.tabs li.active{
+    opacity: 1;
+    color: #fff;
+    font-weight: 700;
+}
+
+.tabs-content-container .tab-content.active{
+    display: block;
+}
+.tabs-content-container .tab-content{
+    display: none;
+}
+.tabs li.active:before{
+    transform: perspective(.5em) rotateX(2deg);
+    border-radius: 10px 10px 0 0;
+}
+
+.tabs-content-container{
+    font-size: .9em;
+    color: #3f4d61;
+    background-color: #f9f9f9;
+    padding: 20px;
+    height: 300px;
+    font-family: sans-serif;
+}
